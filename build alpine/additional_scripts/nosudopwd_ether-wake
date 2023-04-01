@@ -1,0 +1,1 @@
+apache  ALL=NOPASSWD: /usr/sbin/ether-wake
