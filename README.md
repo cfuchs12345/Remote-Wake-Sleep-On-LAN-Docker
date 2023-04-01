@@ -1,13 +1,18 @@
 ## A fork of the original docker image made by ex0nuss which is unfortunately no longer maintained.
 (https://github.com/ex0nuss/Remote-Wake-Sleep-On-LAN-Docker)
 
-I wanted to fix a problem that I found when I used it - hence, I forked it.
-The sleep functionality was apparently no longer working since the curl support was not installed and activated with the latest Ubuntu and used PHP version.
+I wanted to fix a problem that I found when I used it - hence, I forked it.</br>
+(The sleep functionality was apparently no longer working since the curl support was not installed and activated with the latest Ubuntu and used PHP version)</br>
+</br>
+new: </br>
+- Created an Alpine image which is smaller / faster startup etc... had to tweak it a bit so that the commands work as expected by the PHP code</br>
+- Alpine image can use a different interface than eth0 for WoL (can be set by env arg)</br>
+- changed the password hashing since it also changed in the PHP code</br>
 
 # Remote-Wake-Sleep-On-LAN-Docker
 A docker image of [sciguy14/Remote-Wake-Sleep-On-LAN-Server](https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server).
 
-Dockerhub: https://hub.docker.com/r/afoxdocker/remote-wake-sleep-on-lan-docker
+Dockerhub: https://hub.docker.com/r/afoxdocker/remote-wake-sleep-on-lan-docker or https://hub.docker.com/r/afoxdocker/remote-wake-sleep-on-lan-docker-alpine
 
 ## Summary
 
@@ -22,6 +27,8 @@ Dockerhub: https://hub.docker.com/r/afoxdocker/remote-wake-sleep-on-lan-docker
 
 ## Usage
 Here are some example snippets to help you get started creating a container.
+
+For Alpine image replace **afoxdocker/remote-wake-sleep-on-lan-docker** with **afoxdocker/remote-wake-sleep-on-lan-docker-alpine**
 
 ### docker-compose (recommended)
 ```YAML
