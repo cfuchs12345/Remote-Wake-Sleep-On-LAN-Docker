@@ -67,6 +67,7 @@ Parameter / Env var | Optional | Default value | Description
 `RWSOLS_COMPUTER_IP` | no | / | IP addresses for the computers (**array**)
 `RWSOLS_SLEEP_PORT` | yes | 7760 | This is the Port being used by the Windows SleepOnLan Utility to initiate a Sleep State (**not necessary for WOL**)
 `RWSOLS_SLEEP_CMD` | yes | suspend | Command to be issued by the windows sleeponlan utility (**not necessary for WOL**)
+`INTERFACE_FOR_WOL` | yes | eth0 | Interface that is used for wake on lan (**only used for Alpine image**)
 
 #### Explanation: Configuring the destination computer name, MAC and IP
 To configure the computers, we will use these three environment variables:

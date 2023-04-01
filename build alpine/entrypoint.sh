@@ -3,6 +3,7 @@
 #File to edit
 config_file='/var/www/localhost/htdocs/config.php'
 httpd_file='/etc/apache2/httpd.conf'
+wakeonlanscript='/bin/wakeonlan.sh'
 
 #Searches $1 and replaces with $2 in $file
 function search_and_replace {
@@ -33,8 +34,16 @@ search_and_replace RWSOLS_HASH $RWSOLS_HASH $config_file
 OLD_PORT="80"
 NEW_PORT="$APACHE2_PORT"
 
+OLD_IFACE="eth0"
+NEW_IFACE="$INTERFACE_FOR_WOL"
+
 echo "search_and_replace $OLD_PORT with $NEW_PORT"
 search_and_replace ${OLD_PORT} ${NEW_PORT} $httpd_file
+
+
+echo "search_and_replace $OLD_IFACE with $NEW_IFACE"
+search_and_replace ${OLD_IFACE} ${NEW_IFACE} $wakeonlanscript
+
 
 mkdir -p /var/log/apache2
 

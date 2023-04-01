@@ -55,6 +55,7 @@ RUN chmod +x /entrypoint.sh &&\
  ln -s /bin/wakeonlan.sh /bin/wakeonlan
 
 ENV APACHE2_PORT=8080
+ENV INTERFACE_FOR_WOL=eth0
 ENV PASSPHRASE=admin
 ENV RWSOLS_MAX_PINGS=15
 ENV RWSOLS_SLEEP_TIME=5

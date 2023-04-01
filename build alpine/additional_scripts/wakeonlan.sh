@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sudo ether-wake $@
+sudo ether-wake -i eth0 $@
