@@ -5,10 +5,27 @@ config_file='/var/www/localhost/htdocs/config.php'
 httpd_file='/etc/apache2/httpd.conf'
 wakeonlanscript='/bin/wakeonlan.sh'
 
+
+function create_or_restore_from_backup {
+  FILE = $1
+  if [ -f "$FILE.bak" ]; then
+    echo "restoring original file $FILE from backup $FILE.bak"
+    cp  "$FILE.bak"  "$FILE"
+  else
+    echo "no backup file found for $FILE - creating backup file $FILE.bak now"
+    cp  "$FILE" "$FILE.bak"
+  fi
+}
+
 #Searches $1 and replaces with $2 in $file
 function search_and_replace {
   sed -i.bak 's|'$1'|'$2'|g' $3
 }
+
+create_or_restore_from_backup(${config_file})
+create_or_restore_from_backup(${httpd_file})
+create_or_restore_from_backup(${wakeonlanscript})
+
 
 #RWSOLS
 #Does everything for ENV-vars with RWSOLS_*
@@ -38,6 +55,9 @@ OLD_IFACE="eth0"
 NEW_IFACE="$INTERFACE_FOR_WOL"
 
 echo "search_and_replace $OLD_PORT with $NEW_PORT"
+
+
+
 search_and_replace ${OLD_PORT} ${NEW_PORT} $httpd_file
 
 
