@@ -52,6 +52,11 @@ pipeline {
                 }
             }
         }
+        stage('Ask for push') {
+            steps {
+                input('Do you want to push the image to Docker Hub?')
+            }
+        }
         stage('Push Image') {
             steps{
                 script {
