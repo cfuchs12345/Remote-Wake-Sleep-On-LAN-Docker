@@ -7,13 +7,13 @@ wakeonlanscript='/bin/wakeonlan.sh'
 
 
 function create_or_restore_from_backup {
-  FILE = $1
+  FILE=$1
   if [ -f "$FILE.bak" ]; then
     echo "restoring original file $FILE from backup $FILE.bak"
-    cp  "$FILE.bak"  "$FILE"
+    cp "$FILE.bak"  "$FILE"
   else
     echo "no backup file found for $FILE - creating backup file $FILE.bak now"
-    cp  "$FILE" "$FILE.bak"
+    cp "$FILE" "$FILE.bak"
   fi
 }
 
