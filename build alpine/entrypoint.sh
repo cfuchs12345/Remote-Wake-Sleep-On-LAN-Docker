@@ -9,7 +9,7 @@ wakeonlanscript='/bin/wakeonlan.sh'
 function create_or_restore_from_backup {
   FILE="$1"
   FILE_BAK="$FILE.bak"
-  
+
   if [ -f "$FILE_BAK" ]; then
     echo "backup exists - restoring $FILE"    
   else
@@ -22,9 +22,9 @@ function search_and_replace {
   sed -i.bak 's|'$1'|'$2'|g' $3
 }
 
-create_or_restore_from_backup(${config_file})
-create_or_restore_from_backup(${httpd_file})
-create_or_restore_from_backup(${wakeonlanscript})
+create_or_restore_from_backup ${config_file}
+create_or_restore_from_backup ${httpd_file}
+create_or_restore_from_backup ${wakeonlanscript}
 
 
 #RWSOLS
