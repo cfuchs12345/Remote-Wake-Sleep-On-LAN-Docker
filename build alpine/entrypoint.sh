@@ -68,6 +68,7 @@ search_and_replace ${OLD_IFACE} ${NEW_IFACE} $wakeonlanscript
 
 
 mkdir -p /var/log/apache2
+mkdir -p /run/apache2
 
 export APACHE_LOG_DIR=/var/log/apache2
 
@@ -77,5 +78,8 @@ set -e
 
 # Apache gets grumpy about PID files pre-existing
 rm -f /usr/local/apache2/logs/httpd.pid
+
+# Alpine didn't always startup properly
+sleep 2
 
 exec httpd -DFOREGROUND "$@"
