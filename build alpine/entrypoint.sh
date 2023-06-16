@@ -77,7 +77,7 @@ echo "Starting Apache2: httpd -D FOREGROUND"
 set -e
 
 # Apache gets grumpy about PID files pre-existing
-rm -f /usr/local/apache2/logs/httpd.pid
+rm -f /run/apache2/httpd.pid
 
 # Alpine didn't always startup properly
 sleep 2
