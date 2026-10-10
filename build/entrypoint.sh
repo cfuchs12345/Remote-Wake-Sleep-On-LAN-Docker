@@ -19,7 +19,7 @@ compgen -A variable RWSOLS_ | while read v; do
 done
 
 #Settings RWSOLS_HASH for keyphrase
-RWSOLS_HASH=$(php -r "echo utf8_encode(password_hash(trim(\'$PASSPHRASE\'), PASSWORD_DEFAULT));")
+RWSOLS_HASH=$(php -r "echo utf8_encode(password_hash(trim('$PASSPHRASE'), PASSWORD_DEFAULT));")
 
 
 
